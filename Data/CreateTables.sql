@@ -1,6 +1,6 @@
 
 -- User Table
-Create table USER (
+Create table USERS(
     UID int identity(1,1) primary key,
     UFName varchar (50) not null,
     ULName varchar (50) not null,
@@ -11,7 +11,7 @@ GO
 -- Civilian Table
 Create table CIVILIAN (
     UID int primary key,
-    FOREIGN KEY (UID) REFERENCES USER(UID)
+    FOREIGN KEY (UID) REFERENCES USERS(UID)
 );
 
 GO
@@ -19,7 +19,7 @@ GO
 -- Supervisor Table
 Create table SUPERVISOR (
     UID int primary key,
-    FOREIGN KEY (UID) REFERENCES USER(UID)
+    FOREIGN KEY (UID) REFERENCES USERS(UID)
 );
 
 GO
@@ -28,7 +28,7 @@ GO
 Create table WORKER (
     UID int primary key,
     HourlyRate decimal (10,2) not null,
-    FOREIGN KEY (UID) REFERENCES USER(UID)
+    FOREIGN KEY (UID) REFERENCES USERS(UID)
 );
 
 GO
@@ -49,7 +49,7 @@ Create table REPORT (
     ReportedProblem TEXT NOT NULL,
     ReportTime datetime not null,
     PRIMARY KEY (UID, IID),
-    FOREIGN KEY (UID) REFERENCES USER(UID),
+    FOREIGN KEY (UID) REFERENCES USERS(UID),
     FOREIGN KEY (IID) REFERENCES INCIDENT(IID)
 );
 GO
@@ -77,6 +77,8 @@ Create table WORKED_ON (
 );
 
 GO
+
+
 
 
 
