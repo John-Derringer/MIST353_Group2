@@ -1,7 +1,9 @@
+use MIST353_Group2;
+
 
 -- User Table
 Create table USERS(
-    UID int identity(1,1) primary key,
+    UID int identity(100,1) primary key,
     UFName varchar (50) not null,
     ULName varchar (50) not null,
 );
